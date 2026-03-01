@@ -11,7 +11,6 @@ private:
 	// 4J Stu - How many to show on each side of the main control
 	static const BYTE sidePreviewControls = 4;
 
-#ifdef __PSVITA__
 	enum ETouchInput
 	{
 		ETouchInput_TabLeft = 10,
@@ -21,7 +20,6 @@ private:
 		
 		ETouchInput_Count,
 	};
-#endif
 
 	enum ESkinSelectNavigation
 	{
@@ -50,18 +48,14 @@ private:
 	UIControl_Label m_labelSkinName, m_labelSkinOrigin;
 	UIControl_Label m_labelSelected;
 	UIControl m_controlSkinNamePlate, m_controlSelectedPanel, m_controlIggyCharacters, m_controlTimer;
-#ifdef __PSVITA__
 	UIControl_Touch m_TouchTabLeft, m_TouchTabRight, m_TouchTabCenter, m_TouchIggyCharacters;
-#endif
 	IggyName m_funcSetPlayerCharacterSelected, m_funcSetCharacterLocked;
 	IggyName m_funcSetLeftLabel, m_funcSetRightLabel, m_funcSetCentreLabel;
 	UI_BEGIN_MAP_ELEMENTS_AND_NAMES(UIScene)
-#ifdef __PSVITA__
 		UI_MAP_ELEMENT( m_TouchTabLeft, "TouchTabLeft" )
 		UI_MAP_ELEMENT( m_TouchTabRight, "TouchTabRight" )
 		UI_MAP_ELEMENT( m_TouchTabCenter, "TouchTabCenter" )
 		UI_MAP_ELEMENT( m_TouchIggyCharacters, "TouchIggyCharacters" )
-#endif
 		UI_MAP_ELEMENT( m_controlSkinNamePlate, "SkinNamePlate")
 		UI_BEGIN_MAP_CHILD_ELEMENTS( m_controlSkinNamePlate )
 			UI_MAP_ELEMENT( m_labelSkinName, "SkinTitle1")
@@ -174,9 +168,7 @@ private:
 	void AddFavoriteSkin(int iPad,int iSkinID);
 
 	void InputActionOK(unsigned int iPad);
-#ifdef __PSVITA__
 	virtual void handleTouchInput(unsigned int iPad, S32 x, S32 y, int iId, bool bPressed, bool bRepeat, bool bReleased);
-#endif //__PSVITA__
 	virtual void handleReload();
 
 #ifdef __ORBIS__

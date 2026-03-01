@@ -216,9 +216,7 @@ UIController::UIController()
 	InitializeCriticalSection(&m_registeredCallbackScenesCS);
 	//m_bSysUIShowing=false;
 	m_bSystemUIShowing=false;
-#ifdef __PSVITA__
 	m_bTouchscreenPressed=false;
-#endif
 
 	if(!ms_bReloadSkinCSInitialised)
 	{
@@ -419,7 +417,9 @@ void UIController::tick()
 
 void UIController::loadSkins()
 {
-	wstring platformSkinPath = L"";
+	wstring platformSkinPath = L"skinHDWin.swf";
+
+#if 0
 
 #ifdef __PS3__
 	platformSkinPath = L"skinPS3.swf";
@@ -452,8 +452,10 @@ void UIController::loadSkins()
 	{
 		platformSkinPath = L"skinOrbis.swf";	
 	}
+#endif
 
 #endif
+
 	// Every platform has one of these, so nothing shared
 	if(m_fScreenHeight==1080.0f)
 	{
@@ -761,7 +763,6 @@ void UIController::handleKeyPress(unsigned int iPad, unsigned int key)
 	bool released = false; // Toggle
 	bool repeat = false;
 
-#ifdef __PSVITA__
 	if(key==ACTION_MENU_OK)
 	{
 		bool bTouchScreenInput=false;
@@ -913,7 +914,6 @@ void UIController::handleKeyPress(unsigned int iPad, unsigned int key)
 		// ignore any other presses if the touchscreen has been used
 		if(bTouchScreenInput) return;
 	}
-#endif
 
 	down = InputManager.ButtonDown(iPad,key);
 	pressed = InputManager.ButtonPressed(iPad,key); // Toggle
@@ -2341,7 +2341,7 @@ void UIController::ShowSavingMessage(unsigned int iPad, C4JStorage::ESavingMessa
 
 void UIController::ShowPlayerDisplayname(bool show)
 {
-	if(m_groups[(int)eUIGroup_Fullscreen]->getPressStartToPlay()) m_groups[(int)eUIGroup_Fullscreen]->getPressStartToPlay()->showPlayerDisplayName(show);
+	m_groups[(int)eUIGroup_Fullscreen]->getPressStartToPlay()->showPlayerDisplayName(show);
 }
 
 void UIController::SetWinUserIndex(unsigned int iPad)
@@ -2577,8 +2577,6 @@ UIScene *UIController::FindScene(EUIScene sceneType)
 	return pScene;
 }
 
-#ifdef __PSVITA__
-
 void UIController::TouchBoxAdd(UIControl *pControl,UIScene *pUIScene)
 {
 	EUIGroup eUIGroup=pUIScene->GetParentLayerGroup();
@@ -2773,26 +2771,29 @@ void UIController::HandleTouchInput(unsigned int iPad, unsigned int key, bool bP
 		app.DebugPrintf("touch input pressed\n");
 		switch(m_ActiveUIElement->pControl->getControlType())
 		{
-		case UIControl::eButton:
+		case UIControl::eButton: {
 			// set focus
 			UIControl_Button *pButton=(UIControl_Button *)m_ActiveUIElement->pControl;
 			pButton->getParentScene()->SetFocusToElement(m_ActiveUIElement->pControl->getId());
 			// override bPressed to false. we only want the button to trigger on touch release!
 			bPressed = false;
 			break;
-		case UIControl::eSlider:
+		}
+		case UIControl::eSlider: {
 			// set focus
 			UIControl_Slider *pSlider=(UIControl_Slider *)m_ActiveUIElement->pControl;
 			pSlider->getParentScene()->SetFocusToElement(m_ActiveUIElement->pControl->getId());
 			break;
-		case UIControl::eCheckBox:
+		}
+		case UIControl::eCheckBox: {
 			// set focus
 			UIControl_CheckBox *pCheckbox=(UIControl_CheckBox *)m_ActiveUIElement->pControl;
 			pCheckbox->getParentScene()->SetFocusToElement(m_ActiveUIElement->pControl->getId());
 			// override bPressed. we only want the checkbox to trigger on touch release!
 			bPressed = false;
 			break;
-		case UIControl::eButtonList:
+		}
+		case UIControl::eButtonList: {
 			// set focus to list
 			UIControl_ButtonList *pButtonList=(UIControl_ButtonList *)m_ActiveUIElement->pControl;
 			//pButtonList->getParentScene()->SetFocusToElement(m_ActiveUIElement->pControl->getId());
@@ -2801,7 +2802,8 @@ void UIController::HandleTouchInput(unsigned int iPad, unsigned int key, bool bP
 			// override bPressed. we only want the ButtonList to trigger on touch release!
 			bPressed = false;
 			break;
-		case UIControl::eTexturePackList:
+		}
+		case UIControl::eTexturePackList: {
 			// set focus to list
 			UIControl_TexturePackList *pTexturePackList=(UIControl_TexturePackList *)m_ActiveUIElement->pControl;
 			pTexturePackList->getParentScene()->SetFocusToElement(m_ActiveUIElement->pControl->getId());
@@ -2810,28 +2812,32 @@ void UIController::HandleTouchInput(unsigned int iPad, unsigned int key, bool bP
 			// override bPressed. we only want the TexturePack List to trigger on touch release!
 			bPressed = false;
 			break;
-		case UIControl::eTextInput:
+		}
+		case UIControl::eTextInput: {
 			// set focus
 			UIControl_TextInput *pTextInput=(UIControl_TextInput *)m_ActiveUIElement->pControl;
 			pTextInput->getParentScene()->SetFocusToElement(m_ActiveUIElement->pControl->getId());
 			// override bPressed to false. we only want the textinput to trigger on touch release!
 			bPressed = false;
 			break;
-		case UIControl::eDynamicLabel:
+		}			
+		case UIControl::eDynamicLabel: {
 			// handle dynamic label scrolling
 			UIControl_DynamicLabel *pDynamicLabel=(UIControl_DynamicLabel *)m_ActiveUIElement->pControl;
 			pDynamicLabel->TouchScroll(y, true);
 			// override bPressed to false
 			bPressed = false;
 			break;
-		case UIControl::eHTMLLabel:
+		}
+		case UIControl::eHTMLLabel: {
 			// handle dynamic label scrolling
 			UIControl_HTMLLabel *pHtmlLabel=(UIControl_HTMLLabel *)m_ActiveUIElement->pControl;
 			pHtmlLabel->TouchScroll(y, true);
 			// override bPressed to false
 			bPressed = false;
 			break;
-		case UIControl::eLeaderboardList:
+		}
+		case UIControl::eLeaderboardList: {
 			// set focus to list
 			UIControl_LeaderboardList *pLeaderboardList=(UIControl_LeaderboardList *)m_ActiveUIElement->pControl;
 			// tell list where we tapped it so it can set focus to the correct button
@@ -2839,12 +2845,14 @@ void UIController::HandleTouchInput(unsigned int iPad, unsigned int key, bool bP
 			// override bPressed. we only want the ButtonList to trigger on touch release!
 			bPressed = false;
 			break;
-		case UIControl::eTouchControl:
+		}
+		case UIControl::eTouchControl: {
 			// pass on touch input to relevant parent scene so we can handle it there!
 			m_ActiveUIElement->pControl->getParentScene()->handleTouchInput(iPad, x, y, m_ActiveUIElement->pControl->getId(), bPressed, bRepeat, bReleased);
 			// override bPressed to false
 			bPressed = false;
 			break;
+		}
 		default:
 			app.DebugPrintf("PRESSED - UNHANDLED UI ELEMENT\n");
 			break;
@@ -2857,33 +2865,36 @@ void UIController::HandleTouchInput(unsigned int iPad, unsigned int key, bool bP
 		case UIControl::eButton:
 			/* no action */
 			break;
-		case UIControl::eSlider:
+		case UIControl::eSlider: {
 			// handle slider movement
 			UIControl_Slider *pSlider=(UIControl_Slider *)m_ActiveUIElement->pControl;
 			float fNewSliderPos = ((float)x - (float)m_ActiveUIElement->x1) / (float)pSlider->GetRealWidth();
 			pSlider->SetSliderTouchPos(fNewSliderPos);
 			break;
+		}
 		case UIControl::eCheckBox:
 			/* no action */
 			bRepeat = false;
 			bPressed = false;
 			break;
-		case UIControl::eButtonList:
+		case UIControl::eButtonList: {
 			// handle button list scrolling
 			UIControl_ButtonList *pButtonList=(UIControl_ButtonList *)m_ActiveUIElement->pControl;
 			pButtonList->SetTouchFocus((float)x, (float)y, true);
 			break;
-		case UIControl::eTexturePackList:
+		}
+		case UIControl::eTexturePackList: {
 			// handle texturepack list scrolling
 			UIControl_TexturePackList *pTexturePackList=(UIControl_TexturePackList *)m_ActiveUIElement->pControl;
 			pTexturePackList->SetTouchFocus((float)x - (float)m_ActiveUIElement->x1, (float)y - (float)m_ActiveUIElement->y1, true);
 			break;
+		}
 		case UIControl::eTextInput:
 			/* no action */
 			bRepeat = false;
 			bPressed = false;
 			break;
-		case UIControl::eDynamicLabel:
+		case UIControl::eDynamicLabel: {
 			// handle dynamic label scrolling
 			UIControl_DynamicLabel *pDynamicLabel=(UIControl_DynamicLabel *)m_ActiveUIElement->pControl;
 			pDynamicLabel->TouchScroll(y, true);
@@ -2891,7 +2902,8 @@ void UIController::HandleTouchInput(unsigned int iPad, unsigned int key, bool bP
 			bPressed = false;
 			bRepeat = false;
 			break;
-		case UIControl::eHTMLLabel:
+		}
+		case UIControl::eHTMLLabel: {
 			// handle dynamic label scrolling
 			UIControl_HTMLLabel *pHtmlLabel=(UIControl_HTMLLabel *)m_ActiveUIElement->pControl;
 			pHtmlLabel->TouchScroll(y, true);
@@ -2899,11 +2911,13 @@ void UIController::HandleTouchInput(unsigned int iPad, unsigned int key, bool bP
 			bPressed = false;
 			bRepeat = false;
 			break;
-		case UIControl::eLeaderboardList:
+		}
+		case UIControl::eLeaderboardList: {
 			// handle button list scrolling
 			UIControl_LeaderboardList *pLeaderboardList=(UIControl_LeaderboardList *)m_ActiveUIElement->pControl;
 			pLeaderboardList->SetTouchFocus((float)x, (float)y, true);
 			break;
+		}
 		case UIControl::eTouchControl:
 			// override bPressed to false
 			bPressed = false;
@@ -2962,16 +2976,18 @@ void UIController::HandleTouchInput(unsigned int iPad, unsigned int key, bool bP
 			if(m_HighlightedUIElement && m_ActiveUIElement->pControl == m_HighlightedUIElement->pControl)
 				bPressed = true;
 			break;
-		case UIControl::eDynamicLabel:
+		case UIControl::eDynamicLabel: {
 			// handle dynamic label scrolling
 			UIControl_DynamicLabel *pDynamicLabel=(UIControl_DynamicLabel *)m_ActiveUIElement->pControl;
 			pDynamicLabel->TouchScroll(y, false);
 			break;
-		case UIControl::eHTMLLabel:
+		}
+		case UIControl::eHTMLLabel: {
 			// handle dynamic label scrolling
 			UIControl_HTMLLabel *pHtmlLabel=(UIControl_HTMLLabel *)m_ActiveUIElement->pControl;
 			pHtmlLabel->TouchScroll(y, false);
 			break;
+		}
 		case UIControl::eLeaderboardList:
 			/* no action */
 			break;
@@ -3010,6 +3026,3 @@ void UIController::SendTouchInput(unsigned int iPad, unsigned int key, bool bPre
 		m_groups[(iPad+1)]->handleInput(iPad, key, bRepeat, bPressed, bReleased, handled);
 	}
 }
-
-
-#endif

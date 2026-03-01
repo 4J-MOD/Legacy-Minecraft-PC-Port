@@ -322,7 +322,5 @@ void UIScene_HowToPlay::StartPage( EHowToPlayPage ePage )
 
 	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_HowToPlay, (ETelemetry_HowToPlay_SubMenuId)ePage);
 
-#ifdef __PSVITA__
 	ui.TouchBoxRebuild(this);
-#endif
 }

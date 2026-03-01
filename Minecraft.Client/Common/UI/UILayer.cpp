@@ -576,10 +576,8 @@ void UILayer::removeComponent(EUIScene scene)
 			{
 				if( (*compIt)->getSceneType() == scene)
 				{
-#ifdef __PSVITA__
 					// remove any touchboxes
 					ui.TouchBoxesClear((*compIt));
-#endif
 					m_scenesToDelete.push_back((*compIt));
 					(*compIt)->handleDestroy(); // For anything that might require the pointer be valid
 					compIt = m_components.erase(compIt);
@@ -595,10 +593,8 @@ void UILayer::removeComponent(EUIScene scene)
 
 void UILayer::removeScene(UIScene *scene)
 {
-#ifdef __PSVITA__
 	// remove any touchboxes
 	ui.TouchBoxesClear(scene);
-#endif
 
 	AUTO_VAR(newEnd, std::remove(m_sceneStack.begin(), m_sceneStack.end(), scene) );
 	m_sceneStack.erase(newEnd, m_sceneStack.end());
@@ -625,10 +621,8 @@ void UILayer::closeAllScenes()
 	m_sceneStack.clear();
 	for(AUTO_VAR(it, temp.begin()); it != temp.end(); ++it)
 	{
-#ifdef __PSVITA__
 		// remove any touchboxes
 		ui.TouchBoxesClear(*it);
-#endif
 		m_scenesToDelete.push_back(*it);
 		(*it)->handleDestroy(); // For anything that might require the pointer be valid
 	}
@@ -745,7 +739,6 @@ bool UILayer::updateFocusState(bool allowedFocus /* = false */)
 	return m_hasFocus;
 }
 
-#ifdef __PSVITA__
 UIScene *UILayer::getCurrentScene()
 {
 	// Note: reverse iterator, the last element is the top of the stack
@@ -761,7 +754,6 @@ UIScene *UILayer::getCurrentScene()
 
 	return NULL;
 }
-#endif
 
 void UILayer::handleInput(int iPad, int key, bool repeat, bool pressed, bool released, bool &handled)
 {

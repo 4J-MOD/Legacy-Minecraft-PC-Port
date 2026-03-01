@@ -64,12 +64,10 @@ public:
 
 	virtual void customDraw(IggyCustomDrawCallbackRegion *region);
 
-#ifdef __PSVITA__
 	virtual void handleTouchInput(unsigned int iPad, S32 x, S32 y, int iId, bool bPressed, bool bRepeat, bool bReleased);
 	virtual UIControl* GetMainPanel();
 	virtual void handleTouchBoxRebuild();
 	virtual void handleTimerComplete(int id);
-#endif
 
 protected:
 	UIControl m_controlMainPanel;
@@ -86,7 +84,6 @@ protected:
 	IggyName m_funcMoveSelector, m_funcSelectVerticalItem, m_funcSetActiveTab;
 	IggyName m_funcShowPanelDisplay, m_funcShowIngredientSlot;
 
-#ifdef __PSVITA__
 	enum ETouchInput
 	{
 		ETouchInput_TouchPanel_0,
@@ -102,7 +99,6 @@ protected:
 	};
 	UIControl_Touch m_TouchInput[ETouchInput_Count];
 	S32 m_iCraftingSlotTouchStartY;
-#endif
 
 	UI_BEGIN_MAP_ELEMENTS_AND_NAMES(UIScene)
 		UI_MAP_ELEMENT( m_controlMainPanel, "MainPanel" )
@@ -157,7 +153,6 @@ protected:
 			UI_MAP_NAME( m_funcShowPanelDisplay, L"showPanelDisplay")
 			UI_MAP_NAME( m_funcShowIngredientSlot, L"ShowIngredient")
 
-#ifdef __PSVITA__
 			UI_MAP_ELEMENT( m_TouchInput[ETouchInput_TouchPanel_0], "TouchPanel_0" )
 			UI_MAP_ELEMENT( m_TouchInput[ETouchInput_TouchPanel_1], "TouchPanel_1" )
 			UI_MAP_ELEMENT( m_TouchInput[ETouchInput_TouchPanel_2], "TouchPanel_2" )
@@ -166,7 +161,6 @@ protected:
 			UI_MAP_ELEMENT( m_TouchInput[ETouchInput_TouchPanel_5], "TouchPanel_5" )
 			UI_MAP_ELEMENT( m_TouchInput[ETouchInput_TouchPanel_6], "TouchPanel_6" )
 			UI_MAP_ELEMENT( m_TouchInput[ETouchInput_CraftingHSlots], "TouchPanel_CraftingHSlots" )
-#endif
 
 		UI_END_MAP_CHILD_ELEMENTS()
 	UI_END_MAP_ELEMENTS_AND_NAMES()

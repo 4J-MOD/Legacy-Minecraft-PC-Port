@@ -35,18 +35,16 @@ void UIControl_ButtonList::init(int id)
 	value[0].number = id;
 	IggyResult out = IggyPlayerCallMethodRS ( m_parentScene->getMovie() , &result, getIggyValuePath() , m_initFunc , 1 , value );
 
- #ifdef __PSVITA__
  	// 4J-PB - add this buttonlist to the vita touch box list
  
  	switch(m_parentScene->GetParentLayer()->m_iLayer)
  	{
- 	case eUILayer_Fullscreen:
- 	case eUILayer_Scene:
- 	case eUILayer_HUD:
- 		ui.TouchBoxAdd(this,m_parentScene);
- 		break;
-}
- #endif
+		case eUILayer_Fullscreen:
+		case eUILayer_Scene:
+		case eUILayer_HUD:
+			ui.TouchBoxAdd(this,m_parentScene);
+			break;
+	}
 }
 
 void UIControl_ButtonList::ReInit()
@@ -159,7 +157,6 @@ void UIControl_ButtonList::setButtonLabel(int iButtonId, const wstring &label)
 	IggyResult out = IggyPlayerCallMethodRS ( m_parentScene->getMovie(), &result, getIggyValuePath(), m_funcSetButtonLabel, 2 , value );
 }
 
-#ifdef __PSVITA__
 void UIControl_ButtonList::SetTouchFocus(S32 iX, S32 iY, bool bRepeat)
 {
 	IggyDataValue result;
@@ -194,4 +191,3 @@ bool UIControl_ButtonList::CanTouchTrigger(S32 iX, S32 iY)
 	}
 	return bCanTouchTrigger;
 }
-#endif

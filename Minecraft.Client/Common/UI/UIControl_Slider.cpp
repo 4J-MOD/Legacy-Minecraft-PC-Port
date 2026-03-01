@@ -52,7 +52,6 @@ void UIControl_Slider::init(const wstring &label, int id, int min, int max, int 
 	value[4].number = (int)current;
 	IggyResult out = IggyPlayerCallMethodRS ( m_parentScene->getMovie() , &result, getIggyValuePath() , m_initFunc , 5 , value );
 
-#ifdef __PSVITA__
 	// 4J-TomK - add slider to the vita touch box list
 
 	switch(m_parentScene->GetParentLayer()->m_iLayer)
@@ -63,7 +62,6 @@ void UIControl_Slider::init(const wstring &label, int id, int min, int max, int 
 		ui.TouchBoxAdd(this,m_parentScene);
 		break;
 	}
-#endif
 }
 
 void UIControl_Slider::handleSliderMove(int newValue)

@@ -77,13 +77,11 @@ UIScene_SkinSelectMenu::UIScene_SkinSelectMenu(int iPad, void *initData, UILayer
 	m_centreLabel = L"";
 	m_rightLabel = L"";
 
-#ifdef __PSVITA__
-		// initialise vita tab  controls with ids
-		m_TouchTabLeft.init(ETouchInput_TabLeft);
-		m_TouchTabRight.init(ETouchInput_TabRight);
-		m_TouchTabCenter.init(ETouchInput_TabCenter);
-		m_TouchIggyCharacters.init(ETouchInput_IggyCharacters);
-#endif
+	// initialise vita tab  controls with ids
+	m_TouchTabLeft.init(ETouchInput_TabLeft);
+	m_TouchTabRight.init(ETouchInput_TabRight);
+	m_TouchTabCenter.init(ETouchInput_TabCenter);
+	m_TouchIggyCharacters.init(ETouchInput_IggyCharacters);
 
 	// block input if we're waiting for DLC to install. The end of dlc mounting custom message will fill the save list
 	if(app.StartInstallDLCProcess(m_iPad))
@@ -1415,7 +1413,6 @@ void UIScene_SkinSelectMenu::setRightLabel(const wstring &label)
 	}
 }
 
-#ifdef __PSVITA__
 void UIScene_SkinSelectMenu::handleTouchInput(unsigned int iPad, S32 x, S32 y, int iId, bool bPressed, bool bRepeat, bool bReleased)
 {
 	if(bPressed)
@@ -1552,7 +1549,6 @@ void UIScene_SkinSelectMenu::handleTouchInput(unsigned int iPad, S32 x, S32 y, i
 		}
 	}
 }
-#endif
 
 void UIScene_SkinSelectMenu::HandleDLCInstalled()
 {

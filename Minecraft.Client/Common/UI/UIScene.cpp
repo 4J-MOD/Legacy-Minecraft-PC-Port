@@ -233,7 +233,6 @@ void UIScene::initialiseMovie()
 	m_bUpdateOpacity = true;
 }
 
-#ifdef __PSVITA__
 void UIScene::SetFocusToElement(int iID)
 {
 	IggyDataValue result;
@@ -247,7 +246,6 @@ void UIScene::SetFocusToElement(int iID)
 	// also trigger handle focus change (just in case if anything else in relation needs updating!)
 	_handleFocusChange(iID, 0);
 }
-#endif
 
 bool UIScene::mapElementsAndNames()
 {
@@ -529,7 +527,6 @@ void UIScene::removeControl( UIControl_Base *control, bool centreScene)
 	value[1].boolval = centreScene;
 	IggyResult out = IggyPlayerCallMethodRS ( getMovie() , &result, IggyPlayerRootPath( getMovie() ), m_funcRemoveObject , 2 , value );
 
-#ifdef __PSVITA__
 	// update the button positions since they may have changed
 	UpdateSceneControls();
 
@@ -537,7 +534,6 @@ void UIScene::removeControl( UIControl_Base *control, bool centreScene)
 	control->setHidden(true);
 	// remove it from the touchboxes
 	ui.TouchBoxRebuild(control->getParentScene());
-#endif
 
 }
 
@@ -1221,7 +1217,7 @@ UIScene *UIScene::getBackScene()
 {
 	return m_backScene;
 }
-#ifdef __PSVITA__
+
 void UIScene::UpdateSceneControls()
 {
 	AUTO_VAR(itEnd, GetControls()->end());
@@ -1231,7 +1227,6 @@ void UIScene::UpdateSceneControls()
 		control->UpdateControl();
 	}
 }
-#endif
 
 size_t UIScene::GetCallbackUniqueId()
 {

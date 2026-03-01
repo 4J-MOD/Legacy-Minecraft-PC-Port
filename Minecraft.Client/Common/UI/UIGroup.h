@@ -37,9 +37,7 @@ private:
 public:
 	UIGroup(EUIGroup group, int iPad);
 
-#ifdef __PSVITA__
 	EUIGroup GetGroup() {return m_group;}
-#endif
 	UIComponent_Tooltips *getTooltips() { return m_tooltips; }
 	UIComponent_TutorialPopup *getTutorialPopup() { return m_tutorialPopup; }
 	UIScene_HUD *getHUD() { return m_hud; }
@@ -74,10 +72,8 @@ public:
 	// INPUT
 	void handleInput(int iPad, int key, bool repeat, bool pressed, bool released, bool &handled);
 
-#ifdef __PSVITA__
 	// Current active scene
 	UIScene *getCurrentScene();
-#endif
 
 	// FOCUS
 	bool getFocusState();

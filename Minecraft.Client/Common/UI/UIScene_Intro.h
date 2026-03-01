@@ -9,13 +9,9 @@ private:
 	bool m_bAnimationEnded;
 
 	IggyName m_funcSetIntroPlatform;
-#ifdef __PSVITA__
 	UIControl_Touch m_TouchToSkip;
-#endif
 	UI_BEGIN_MAP_ELEMENTS_AND_NAMES(UIScene)
-#ifdef __PSVITA__
 		UI_MAP_ELEMENT( m_TouchToSkip, "TouchToSkip" )
-#endif
 		UI_MAP_NAME( m_funcSetIntroPlatform, L"SetIntroPlatform")
 	UI_END_MAP_ELEMENTS_AND_NAMES()
 
@@ -44,9 +40,5 @@ public:
 
 	virtual void handleAnimationEnd();
 	virtual void handleGainFocus(bool navBack);
-
-#ifdef __PSVITA__
 	virtual void handleTouchInput(unsigned int iPad, S32 x, S32 y, int iId, bool bPressed, bool bRepeat, bool bReleased);
-#endif
-
 };
