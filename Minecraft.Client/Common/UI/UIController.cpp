@@ -417,9 +417,7 @@ void UIController::tick()
 
 void UIController::loadSkins()
 {
-	wstring platformSkinPath = L"skinHDWin.swf";
-
-#if 0
+	wstring platformSkinPath = L"";
 
 #ifdef __PS3__
 	platformSkinPath = L"skinPS3.swf";
@@ -452,8 +450,6 @@ void UIController::loadSkins()
 	{
 		platformSkinPath = L"skinOrbis.swf";	
 	}
-#endif
-
 #endif
 
 	// Every platform has one of these, so nothing shared
