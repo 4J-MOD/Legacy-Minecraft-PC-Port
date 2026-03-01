@@ -4,6 +4,7 @@
 # Compiled Object files
 *.slo
 *.lo
+*.o
 *.obj
 
 # Precompiled Headers
@@ -19,6 +20,7 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
+*.dll
 *.so.*
 
 
@@ -29,6 +31,8 @@
 # Compiled Static libraries
 *.lai
 *.la
+*.a
+*.lib
 
 # Executables
 *.exe
@@ -63,3 +67,7 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+*.tlog
+x64/
+*.ms
+*.lastbuildstate
