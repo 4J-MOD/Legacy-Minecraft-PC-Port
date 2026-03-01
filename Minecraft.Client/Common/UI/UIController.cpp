@@ -2337,7 +2337,7 @@ void UIController::ShowSavingMessage(unsigned int iPad, C4JStorage::ESavingMessa
 
 void UIController::ShowPlayerDisplayname(bool show)
 {
-	m_groups[(int)eUIGroup_Fullscreen]->getPressStartToPlay()->showPlayerDisplayName(show);
+	if(m_groups[(int)eUIGroup_Fullscreen]->getPressStartToPlay()) m_groups[(int)eUIGroup_Fullscreen]->getPressStartToPlay()->showPlayerDisplayName(show);
 }
 
 void UIController::SetWinUserIndex(unsigned int iPad)
