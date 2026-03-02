@@ -74,4 +74,11 @@ x64/
 *.ms
 *.lastbuildstate
 *.suo
+.vs/
 ipch/
+PS3_Release/
+ORBIS_Release/
+PSVITA_Release/
+PS3_Debug/
+ORBIS_Debug/
+PSVITA_Debug/
