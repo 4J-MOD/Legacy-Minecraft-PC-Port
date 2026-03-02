@@ -114,7 +114,7 @@ void AchievementPopup::render()
 
     int xx = width - 160;
     int yy = 0 - (int) (yo * 36);
-    int tex = mc->textures->loadMemTexture(L"/achievement/bg.png", 0);
+    int tex = mc->textures->loadTexture(TN_ACHIEVEMENT_BG);
     Lighting::turnOn();
     glEnable(GL_LIGHTING);
     glColor4f(1, 1, 1, 1);
