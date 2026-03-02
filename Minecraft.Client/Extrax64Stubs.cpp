@@ -65,7 +65,9 @@ DWORD XShowPartyUI(DWORD dwUserIndex) { return 0; }
 DWORD XShowFriendsUI(DWORD dwUserIndex) { return 0; }
 HRESULT XPartyGetUserList(XPARTY_USER_LIST *pUserList) { return S_OK; }
 DWORD XContentGetThumbnail(DWORD dwUserIndex, const XCONTENT_DATA *pContentData,  PBYTE pbThumbnail,  PDWORD pcbThumbnail,  PXOVERLAPPED *pOverlapped) { return 0; }
-void XShowAchievementsUI(int i) {}
+void XShowAchievementsUI(int i) {
+	BMC::GetInstance().GetGui()->PushRoute("achievements");
+}
 DWORD XBackgroundDownloadSetMode(XBACKGROUND_DOWNLOAD_MODE Mode) { return 0; }
 
 #ifndef _DURANGO

@@ -9,6 +9,7 @@ class Achievement : public Stat
 {
 public:
 	const int x, y;
+	const int maxProgress = 1; // @BMC: Added for achievements that require more than 1 progress
 	Achievement *req;
 
 private: 

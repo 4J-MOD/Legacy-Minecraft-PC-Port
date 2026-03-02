@@ -741,6 +741,12 @@
     <Filter Include="BMC\libs\imgui">
       <UniqueIdentifier>{43926b8b-bf8e-4581-9bc0-2dc577621d94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BMC\system">
+      <UniqueIdentifier>{b5908f2d-23e8-4478-8f18-1f6c81678427}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BMC\system\achievements">
+      <UniqueIdentifier>{06d3546a-2d3c-4335-ac36-18a8ef92cae2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -3700,6 +3706,9 @@
     <ClInclude Include="BMC\ui\SettingsWindow.h">
       <Filter>BMC\ui</Filter>
     </ClInclude>
+    <ClInclude Include="BMC\system\achievements\AchievementImpl.h">
+      <Filter>BMC\system\achievements</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -5757,6 +5766,9 @@
     <ClCompile Include="BMC\ui\SettingsWindow.cpp">
       <Filter>BMC\ui</Filter>
     </ClCompile>
+    <ClCompile Include="BMC\system\achievements\AchievementImpl.cpp">
+      <Filter>BMC\system\achievements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="Xbox\4JLibs\libs\4J_Render_d.lib">
@@ -5811,9 +5823,6 @@
       <Filter>Windows64\4JLibs\libs</Filter>
     </Library>
     <Library Include="Windows64\4JLibs\libs\4J_Input.lib">
-      <Filter>Windows64\4JLibs\libs</Filter>
-    </Library>
-    <Library Include="Windows64\4JLibs\libs\4J_Input_d.lib">
       <Filter>Windows64\4JLibs\libs</Filter>
     </Library>
     <Library Include="Windows64\Miles\lib\mss64.lib">

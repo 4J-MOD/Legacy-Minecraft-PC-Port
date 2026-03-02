@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Minecraft.World", "Minecraft.World\Minecraft.World.vcxproj", "{F046C3CE-9749-4823-B32B-D9CC10B1A2C8}"
 EndProject
@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Minecraft.Client", "Minecra
 	ProjectSection(ProjectDependencies) = postProject
 		{F046C3CE-9749-4823-B32B-D9CC10B1A2C8} = {F046C3CE-9749-4823-B32B-D9CC10B1A2C8}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Input", "4JLibs\Windows_Libs\Dev\Input\Input.vcxproj", "{258F8CF7-6317-480D-B07D-52A6846ADF67}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Storage", "4JLibs\Windows_Libs\Dev\Storage\Storage.vcxproj", "{6DED1618-2ADA-4D72-A11F-425E83C7042E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +42,30 @@ Global
 		{1B9A8C38-DD48-448C-AA24-E1A35E0089A3}.Release|Windows64.Build.0 = Release|x64
 		{1B9A8C38-DD48-448C-AA24-E1A35E0089A3}.Release|Windows64.Deploy.0 = Release|x64
 		{1B9A8C38-DD48-448C-AA24-E1A35E0089A3}.ReleaseForArt|Windows64.ActiveCfg = ReleaseForArt|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.ContentPackage_NO_TU|Windows64.ActiveCfg = Debug|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.ContentPackage_NO_TU|Windows64.Build.0 = Debug|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.CONTENTPACKAGE_SYMBOLS|Windows64.ActiveCfg = Debug|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.CONTENTPACKAGE_SYMBOLS|Windows64.Build.0 = Debug|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.ContentPackage|Windows64.ActiveCfg = Debug|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.ContentPackage|Windows64.Build.0 = Debug|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.Debug|Windows64.ActiveCfg = Debug|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.Debug|Windows64.Build.0 = Debug|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.Release|Windows64.ActiveCfg = Release|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.Release|Windows64.Build.0 = Release|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.ReleaseForArt|Windows64.ActiveCfg = Release|x64
+		{258F8CF7-6317-480D-B07D-52A6846ADF67}.ReleaseForArt|Windows64.Build.0 = Release|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.ContentPackage_NO_TU|Windows64.ActiveCfg = Debug|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.ContentPackage_NO_TU|Windows64.Build.0 = Debug|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.CONTENTPACKAGE_SYMBOLS|Windows64.ActiveCfg = Debug|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.CONTENTPACKAGE_SYMBOLS|Windows64.Build.0 = Debug|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.ContentPackage|Windows64.ActiveCfg = Debug|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.ContentPackage|Windows64.Build.0 = Debug|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.Debug|Windows64.ActiveCfg = Debug|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.Debug|Windows64.Build.0 = Debug|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.Release|Windows64.ActiveCfg = Release|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.Release|Windows64.Build.0 = Release|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.ReleaseForArt|Windows64.ActiveCfg = Release|x64
+		{6DED1618-2ADA-4D72-A11F-425E83C7042E}.ReleaseForArt|Windows64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

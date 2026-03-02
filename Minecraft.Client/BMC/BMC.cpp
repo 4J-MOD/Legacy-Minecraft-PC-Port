@@ -8,7 +8,6 @@ BMC::BMC() {
     mGui = std::make_shared<BGui>();
     mGui->Setup();
     mGui->Init();
-    ShipInit::InitAll();
 }
 
 BMC& BMC::GetInstance() {
