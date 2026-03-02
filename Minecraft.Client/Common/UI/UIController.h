@@ -43,8 +43,6 @@ private:
 	UIBitmapFont *m_moj7, *m_moj11;
 
 	// 4J-PB - ui element type for PSVita touch control
-#ifdef __PSVITA__
-
 	typedef struct  
 	{
 		UIControl *pControl;
@@ -54,7 +52,7 @@ private:
 	// E3 - Fine for now, but we need to make this better!
 	vector<UIELEMENT *> m_TouchBoxes[eUIGroup_COUNT][eUILayer_COUNT][eUIScene_COUNT];
 	bool m_bTouchscreenPressed;
-#endif
+
 	// 4J Stu - These should be in the order that they reference each other (i.e. they can only reference one with a lower value in the enum)
 	enum ELibraries
 	{
@@ -144,7 +142,6 @@ private:
 
 public:
 	UIController();
-#ifdef __PSVITA__
 	void TouchBoxAdd(UIControl *pControl,UIScene *pUIScene);
 	bool TouchBoxHit(UIScene *pUIScene,S32 x, S32 y);
 	void TouchBoxesClear(UIScene *pUIScene);
@@ -157,7 +154,6 @@ public:
 	void TouchBoxAdd(UIControl *pControl,EUIGroup eUIGroup,EUILayer eUILayer,EUIScene eUIscene, UIControl *pMainPanelControl);
 	UIELEMENT *m_ActiveUIElement;
 	UIELEMENT *m_HighlightedUIElement;
-#endif
 
 protected:
 	UIGroup *m_groups[eUIGroup_COUNT];

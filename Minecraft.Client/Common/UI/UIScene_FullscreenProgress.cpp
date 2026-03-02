@@ -67,9 +67,7 @@ UIScene_FullscreenProgress::UIScene_FullscreenProgress(int iPad, void *initData,
 	thread->Run();
 	threadStarted = true;
 
-#ifdef __PSVITA__
 	ui.TouchBoxRebuild(this);
-#endif
 
 #ifdef _XBOX_ONE
 	ui.ShowPlayerDisplayname(false);

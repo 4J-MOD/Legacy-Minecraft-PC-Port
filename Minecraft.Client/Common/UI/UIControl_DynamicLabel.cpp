@@ -44,7 +44,6 @@ void UIControl_DynamicLabel::ReInit()
 
 void UIControl_DynamicLabel::SetupTouch()
 {
- #ifdef __PSVITA__
  	// 4J-TomK - add this dynamic label to the vita touch box list
  
  	switch(m_parentScene->GetParentLayer()->m_iLayer)
@@ -55,7 +54,6 @@ void UIControl_DynamicLabel::SetupTouch()
  		ui.TouchBoxAdd(this,m_parentScene);
  		break;
  	}
- #endif
 }
 
 void UIControl_DynamicLabel::TouchScroll(S32 iY, bool bActive)

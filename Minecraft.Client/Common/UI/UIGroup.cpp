@@ -16,9 +16,7 @@ UIGroup::UIGroup(EUIGroup group, int iPad)
 	for(unsigned int i = 0; i < eUILayer_COUNT; ++i)
 	{
 		m_layers[i] = new UILayer(this);
-#ifdef __PSVITA__
 		m_layers[i]->m_iLayer=(EUILayer)i;
-#endif
 	}
 
 	m_tooltips = (UIComponent_Tooltips *)m_layers[(int)eUILayer_Tooltips]->addComponent(0, eUIComponent_Tooltips);
@@ -206,7 +204,6 @@ bool UIGroup::HasFocus(int iPad)
 	return hasFocus;
 }
 
-#ifdef __PSVITA__
 UIScene *UIGroup::getCurrentScene()
 {
 	UIScene *pScene;
@@ -219,7 +216,6 @@ UIScene *UIGroup::getCurrentScene()
 
 	return NULL;
 }
-#endif
 
 // INPUT
 void UIGroup::handleInput(int iPad, int key, bool repeat, bool pressed, bool released, bool &handled)

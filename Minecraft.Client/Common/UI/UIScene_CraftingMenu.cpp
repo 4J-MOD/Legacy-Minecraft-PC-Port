@@ -5,10 +5,8 @@
 #include "..\..\..\Minecraft.World\net.minecraft.world.inventory.h"
 #include "UIScene_CraftingMenu.h"
 
-#ifdef __PSVITA__
 #define GAME_CRAFTING_TOUCHUPDATE_TIMER_ID 0
 #define GAME_CRAFTING_TOUCHUPDATE_TIMER_TIME 100
-#endif
 
 UIScene_CraftingMenu::UIScene_CraftingMenu(int iPad, void *_initData, UILayer *parentLayer) : UIScene(iPad, parentLayer)
 {
@@ -176,14 +174,12 @@ UIScene_CraftingMenu::UIScene_CraftingMenu(int iPad, void *_initData, UILayer *p
 	// 4J-PB - Must be after the CanBeMade list has been set up with CheckRecipesAvailable
 	UpdateTooltips();
 
-#ifdef __PSVITA__
 	// initialise vita touch controls with ids
 	for(unsigned int i = 0; i < ETouchInput_Count; ++i)
 	{
 		m_TouchInput[i].init(i);
 	}
 	ui.TouchBoxRebuild(this);
-#endif
 }
 
 void UIScene_CraftingMenu::handleDestroy()
@@ -251,7 +247,6 @@ wstring UIScene_CraftingMenu::getMoviePath()
 	}
 }
 
-#ifdef __PSVITA__
 UIControl* UIScene_CraftingMenu::GetMainPanel()
 {
 	return &m_controlMainPanel;
@@ -378,7 +373,6 @@ void UIScene_CraftingMenu::handleTimerComplete(int id)
 		killTimer(GAME_CRAFTING_TOUCHUPDATE_TIMER_ID);
 	}
 }
-#endif
 
 void UIScene_CraftingMenu::handleReload()
 {

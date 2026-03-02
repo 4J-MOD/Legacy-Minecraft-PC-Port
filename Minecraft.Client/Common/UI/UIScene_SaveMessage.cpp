@@ -37,9 +37,7 @@ UIScene_SaveMessage::UIScene_SaveMessage(int iPad, void *initData, UILayer *pare
 	m_bIgnoreInput=false;
 
 	// 4J-TomK - rebuild touch after auto resize
-#ifdef __PSVITA__
 	ui.TouchBoxRebuild(this);
-#endif
 }
 
 UIScene_SaveMessage::~UIScene_SaveMessage()

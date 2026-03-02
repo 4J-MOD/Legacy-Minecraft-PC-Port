@@ -41,10 +41,8 @@ UIScene_Intro::UIScene_Intro(int iPad, void *initData, UILayer *parentLayer) : U
 	value[1].boolval = bSkipESRB;
 	IggyResult out = IggyPlayerCallMethodRS ( getMovie() , &result, IggyPlayerRootPath( getMovie() ), m_funcSetIntroPlatform , 2 , value );
 
-#ifdef __PSVITA__
 	// initialise vita touch controls with ids
 	m_TouchToSkip.init(0);
-#endif
 }
 
 wstring UIScene_Intro::getMoviePath()
@@ -98,7 +96,6 @@ void UIScene_Intro::handleInput(int iPad, int key, bool repeat, bool pressed, bo
 	}
 }
 
-#ifdef __PSVITA__
 void UIScene_Intro::handleTouchInput(unsigned int iPad, S32 x, S32 y, int iId, bool bPressed, bool bRepeat, bool bReleased)
 {
 	if(bReleased)
@@ -107,7 +104,6 @@ void UIScene_Intro::handleTouchInput(unsigned int iPad, S32 x, S32 y, int iId, b
 		handleInput(iPad, ACTION_MENU_OK, false, true, false, handled);
 	}
 }
-#endif
 
 void UIScene_Intro::handleAnimationEnd()
 {

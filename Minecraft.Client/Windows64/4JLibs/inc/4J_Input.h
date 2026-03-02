@@ -53,6 +53,23 @@ enum EKeyboardResult
 	EKeyboard_ResultDecline,
 };
 
+typedef struct SceTouchReport {
+    uint8_t id;
+    uint8_t force;
+    int16_t x;
+    int16_t y;
+    uint8_t reserved[8];
+    uint16_t info;
+} SceTouchReport;
+
+typedef struct SceTouchData
+{
+    uint64_t timeStamp;
+    uint32_t status;
+    uint32_t reportNum;
+    SceTouchReport report[8];
+} SceTouchData;
+
 typedef struct _STRING_VERIFY_RESPONSE
 {
 	WORD wNumStrings;
@@ -106,6 +123,7 @@ public:
 	unsigned char		GetJoypadRTrigger(int iPad, bool bCheckMenuDisplay=true);
 
 	void				SetMenuDisplayed(int iPad, bool bVal);
+	SceTouchData*		GetTouchPadData(int iPad, bool bCheckMenuDisplay);
 
 // 	EKeyboardResult		RequestKeyboard(UINT uiTitle, UINT uiText, UINT uiDesc, DWORD dwPad, WCHAR *pwchResult, UINT uiResultSize,int( *Func)(LPVOID,const bool),LPVOID lpParam,EKeyboardMode eMode,C4JStringTable *pStringTable=NULL);
 // 	EKeyboardResult		RequestKeyboard(UINT uiTitle, LPCWSTR pwchDefault, UINT uiDesc, DWORD dwPad, WCHAR *pwchResult, UINT uiResultSize,int( *Func)(LPVOID,const bool),LPVOID lpParam, EKeyboardMode eMode,C4JStringTable *pStringTable=NULL);

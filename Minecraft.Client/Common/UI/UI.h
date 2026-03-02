@@ -36,9 +36,7 @@
 #include "UIControl_EnchantmentBook.h"
 #include "UIControl_SpaceIndicatorBar.h"
 
-#ifdef __PSVITA__
 #include "UIControl_Touch.h"
-#endif
 
 #include "UIScene_HUD.h"
 #include "UIComponent_Panorama.h"

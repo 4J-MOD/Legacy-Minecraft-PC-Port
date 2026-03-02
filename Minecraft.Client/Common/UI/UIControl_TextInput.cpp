@@ -38,7 +38,6 @@ void UIControl_TextInput::init(const wstring &label, int id)
 	value[1].number = id;
 	IggyResult out = IggyPlayerCallMethodRS ( m_parentScene->getMovie() , &result, getIggyValuePath() , m_initFunc , 2 , value );
 
- #ifdef __PSVITA__
  	// 4J-TomK - add this buttonlist to the vita touch box list
  
  	switch(m_parentScene->GetParentLayer()->m_iLayer)
@@ -49,7 +48,6 @@ void UIControl_TextInput::init(const wstring &label, int id)
  		ui.TouchBoxAdd(this,m_parentScene);
  		break;
  	}
- #endif
 }
 
 void UIControl_TextInput::ReInit()

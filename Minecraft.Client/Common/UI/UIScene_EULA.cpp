@@ -81,9 +81,7 @@ UIScene_EULA::UIScene_EULA(int iPad, void *initData, UILayer *parentLayer) : UIS
 
 	//ui.setFontCachingCalculationBuffer(20000);
 
-#ifdef __PSVITA__
 	ui.TouchBoxRebuild(this);
-#endif
 }
 
 UIScene_EULA::~UIScene_EULA()

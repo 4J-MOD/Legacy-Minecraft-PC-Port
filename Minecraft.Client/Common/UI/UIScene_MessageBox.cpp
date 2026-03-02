@@ -49,9 +49,7 @@ UIScene_MessageBox::UIScene_MessageBox(int iPad, void *initData, UILayer *parent
 	parentLayer->addComponent(iPad,eUIComponent_MenuBackground);
 
 	// 4J-TomK - rebuild touch after auto resize
-#ifdef __PSVITA__
 	ui.TouchBoxRebuild(this);
-#endif
 }
 
 UIScene_MessageBox::~UIScene_MessageBox()

@@ -17,10 +17,8 @@ bool UIControl_LeaderboardList::setupControl(UIScene *scene, IggyValuePath *pare
 	m_funcResetLeaderboard = registerFastName(L"ResetLeaderboard");
 	m_funcSetupTitles = registerFastName(L"SetupTitles");
 	m_funcSetColumnIcon = registerFastName(L"SetColumnIcon");
-#ifdef __PSVITA__
 	m_funcSetTouchFocus = registerFastName(L"SetTouchFocus");
 	m_bTouchInitialised = false;
-#endif
 
 	return success;
 }
@@ -82,7 +80,6 @@ void UIControl_LeaderboardList::initLeaderboard(int iFirstFocus, int iTotalEntri
 	value[2].number = iNumColumns;
 	IggyResult out = IggyPlayerCallMethodRS ( m_parentScene->getMovie() , &result, getIggyValuePath(), m_funcInitLeaderboard , 3 , value );
 
-#ifdef __PSVITA__
 	// 4J-PB - add this button to the vita touch box list
 	if(!m_bTouchInitialised)
 	{
@@ -95,7 +92,6 @@ void UIControl_LeaderboardList::initLeaderboard(int iFirstFocus, int iTotalEntri
 		}
 		m_bTouchInitialised = true;
 	}
-#endif
 }
 
 void UIControl_LeaderboardList::setColumnIcon(int iColumn, int iType)
@@ -220,7 +216,6 @@ void UIControl_LeaderboardList::addDataSet(bool bLast, int iId, int iRank, const
 	IggyResult out = IggyPlayerCallMethodRS ( m_parentScene->getMovie() , &result, getIggyValuePath(), m_funcAddDataSet , 12 , value );
 }
 
-#ifdef __PSVITA__
 void UIControl_LeaderboardList::SetTouchFocus(S32 iX, S32 iY, bool bRepeat)
 {
 	IggyDataValue result;
@@ -235,4 +230,3 @@ void UIControl_LeaderboardList::SetTouchFocus(S32 iX, S32 iY, bool bRepeat)
 
 	IggyResult out = IggyPlayerCallMethodRS ( m_parentScene->getMovie(), &result, getIggyValuePath(), m_funcSetTouchFocus, 3 , value );
 }
-#endif

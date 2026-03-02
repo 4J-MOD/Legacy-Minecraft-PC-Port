@@ -210,9 +210,7 @@ UIScene_InGamePlayerOptionsMenu::UIScene_InGamePlayerOptionsMenu(int iPad, void 
 
 	g_NetworkManager.RegisterPlayerChangedCallback(m_iPad, &UIScene_InGamePlayerOptionsMenu::OnPlayerChanged, this);
 
-#ifdef __PSVITA__
 	ui.TouchBoxRebuild(this);
-#endif
 }
 
 wstring UIScene_InGamePlayerOptionsMenu::getMoviePath()

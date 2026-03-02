@@ -27,9 +27,7 @@ public:
 	bool m_bIgnoreAutosaveMenuDisplayed;
 	bool m_bIgnorePlayerJoinMenuDisplayed;
 
-#ifdef __PSVITA__
 	EUILayer m_iLayer;
-#endif
 
 	UIGroup *m_parentGroup;
 public:
@@ -66,10 +64,8 @@ public:
 
 	// INPUT
 	void handleInput(int iPad, int key, bool repeat, bool pressed, bool released, bool &handled);
-#ifdef __PSVITA__	
 	// Current active scene
 	UIScene *getCurrentScene();
-#endif
 	// FOCUS
 	
 	bool updateFocusState(bool allowedFocus = false);

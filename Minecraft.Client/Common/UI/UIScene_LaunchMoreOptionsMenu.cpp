@@ -118,9 +118,7 @@ UIScene_LaunchMoreOptionsMenu::UIScene_LaunchMoreOptionsMenu(int iPad, void *ini
 
 	addTimer(GAME_CREATE_ONLINE_TIMER_ID,GAME_CREATE_ONLINE_TIMER_TIME);
 
-#ifdef __PSVITA__
 	ui.TouchBoxRebuild(this);
-#endif
 
 	m_bIgnoreInput = false;
 	m_tabIndex = 0;
