@@ -7,12 +7,14 @@
 
 class Window {
 public:
-    Window(std::shared_ptr<BGui> gui);
+    Window(std::shared_ptr<BGui> gui) {
+        mGui = gui;
+    }
 
-    virtual void Init();
-    virtual void Destroy();
-    virtual void StartFrame();
-    virtual void EndFrame();
+    virtual void Init() = 0;
+    virtual void Destroy() = 0;
+    virtual void StartFrame() = 0;
+    virtual void EndFrame() = 0;
 
 private:
     std::shared_ptr<BGui> mGui;

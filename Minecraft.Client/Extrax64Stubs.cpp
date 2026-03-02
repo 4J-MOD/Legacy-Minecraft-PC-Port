@@ -34,6 +34,8 @@
 #include <perf.h>
 #endif
 
+#include "BMC/BMC.h"
+
 #if !defined(__PS3__) && !defined(__ORBIS__) && !defined(__PSVITA__)
 #ifdef _WINDOWS64
 //C4JStorage StorageManager;
@@ -487,8 +489,13 @@ char fakeGamerTag[32] = "PlayerName";
 void				SetFakeGamertag(char *name){ strcpy_s(fakeGamerTag, name); }
 char*				C_4JProfile::GetGamertag(int iPad){ return fakeGamerTag; }
 #else
-char*				C_4JProfile::GetGamertag(int iPad){ return "PlayerName"; }
-wstring				C_4JProfile::GetDisplayName(int iPad){ return L"PlayerName"; }
+char*				C_4JProfile::GetGamertag(int iPad){ return (char*) CVarGetString("gGame.playerName", "PlayerName"); }
+wstring				C_4JProfile::GetDisplayName(int iPad){ 
+						const char* gamertag = CVarGetString("gGame.displayName", "PlayerName");
+						wchar_t wbuf[256];
+						mbstowcs(wbuf, gamertag, 256);
+						return wstring(wbuf);
+					}
 #endif
 bool				C_4JProfile::IsFullVersion() { return s_bProfileIsFullVersion; }
 void				C_4JProfile::SetSignInChangeCallback(void ( *Func)(LPVOID, bool, unsigned int),LPVOID lpParam) {}

@@ -1,9 +1,9 @@
 #include "BGui.h"
-#include "./Window.h"
+#include "../ui/SettingsWindow.h"
 
 void BGui::Setup() {
     mRoutes = {
-        ROUTE("/", Window)
+        ROUTE("/", SettingsWindow)
     };
     mCurrentRoute = "/";
 }

@@ -3673,9 +3673,6 @@
     <ClInclude Include="BMC\engine\Window.h">
       <Filter>BMC\engine</Filter>
     </ClInclude>
-    <ClInclude Include="BMC\ui\Settings.h">
-      <Filter>BMC\ui</Filter>
-    </ClInclude>
     <ClInclude Include="BMC\libs\imgui\imconfig.h">
       <Filter>BMC\libs\imgui</Filter>
     </ClInclude>
@@ -3699,6 +3696,9 @@
     </ClInclude>
     <ClInclude Include="BMC\libs\imgui\imstb_truetype.h">
       <Filter>BMC\libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\ui\SettingsWindow.h">
+      <Filter>BMC\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -5733,9 +5733,6 @@
     <ClCompile Include="BMC\engine\UIWidgets.cpp">
       <Filter>BMC\engine</Filter>
     </ClCompile>
-    <ClCompile Include="BMC\ui\Settings.cpp">
-      <Filter>BMC\ui</Filter>
-    </ClCompile>
     <ClCompile Include="BMC\libs\imgui\imgui.cpp">
       <Filter>BMC\libs\imgui</Filter>
     </ClCompile>
@@ -5756,6 +5753,9 @@
     </ClCompile>
     <ClCompile Include="BMC\libs\imgui\imgui_widgets.cpp">
       <Filter>BMC\libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\ui\SettingsWindow.cpp">
+      <Filter>BMC\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

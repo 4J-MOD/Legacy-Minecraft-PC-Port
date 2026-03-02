@@ -10,13 +10,14 @@
 #include "engine/UIWidgets.h"
 #include "engine/ShipInit.hpp"
 #include "engine/ConsoleVariable.h"
+#include "bridge/cvar.h"
+
+// Minecraft Stuff
+#include "stdafx.h"
 
 class BMC {
 public:
-    static BMC& GetInstance() {
-        static BMC instance;
-        return instance;
-    }
+    static BMC& GetInstance();
 
     std::shared_ptr<Ship::Config> GetConfig() {
         return mConfig;
@@ -33,9 +34,10 @@ public:
     void SaveConfig() {
         mConfig->Save();
     }
-protected:
+
     BMC();
     ~BMC() = default;
+protected:
     std::shared_ptr<BGui> mGui;
     std::shared_ptr<Ship::Config> mConfig;
     std::shared_ptr<Ship::ConsoleVariable> mConsoleVariables;

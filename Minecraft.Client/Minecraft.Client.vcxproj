@@ -4301,7 +4301,7 @@ xcopy /q /y /i /s /e $(ProjectDir)Durango\CU  $(LayoutDir)Image\Loose\CU</Comman
     <ClInclude Include="BMC\libs\imgui\imstb_rectpack.h" />
     <ClInclude Include="BMC\libs\imgui\imstb_textedit.h" />
     <ClInclude Include="BMC\libs\imgui\imstb_truetype.h" />
-    <ClInclude Include="BMC\ui\Settings.h" />
+    <ClInclude Include="BMC\ui\SettingsWindow.h" />
     <ClInclude Include="BoatModel.h" />
     <ClInclude Include="BoatRenderer.h" />
     <ClInclude Include="BookModel.h" />
@@ -21500,7 +21500,7 @@ xcopy /q /y /i /s /e $(ProjectDir)Durango\CU  $(LayoutDir)Image\Loose\CU</Comman
     <ClCompile Include="BMC\libs\imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="BMC\libs\imgui\imgui_tables.cpp" />
     <ClCompile Include="BMC\libs\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="BMC\ui\Settings.cpp" />
+    <ClCompile Include="BMC\ui\SettingsWindow.cpp" />
     <ClCompile Include="BoatModel.cpp" />
     <ClCompile Include="BoatRenderer.cpp" />
     <ClCompile Include="BookModel.cpp" />
