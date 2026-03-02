@@ -18,6 +18,6 @@ public:
 	virtual const int getGroup();		
 
 	// 4J-PB
-	virtual bool requires(int iRecipe);
-	virtual void requires(INGREDIENTS_REQUIRED *pIngReq);
+	virtual bool required(int iRecipe);
+	virtual void required(INGREDIENTS_REQUIRED *pIngReq);
 };

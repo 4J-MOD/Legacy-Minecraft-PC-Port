@@ -15,9 +15,17 @@
 #include "net.minecraft.world.level.h"
 #include "..\Minecraft.Client\Textures.h"
 #include "Villager.h"
+#include <algorithm>
+#include <random>
 
 unordered_map<int, pair<int,int> > Villager::MIN_MAX_VALUES;
 unordered_map<int, pair<int,int> > Villager::MIN_MAX_PRICES;
+
+template<class RandomIt>
+void modern_shuffle(RandomIt first, RandomIt last) {
+    static std::mt19937 g(std::random_device{}());
+    std::shuffle(first, last, g);
+}
 
 void Villager::_init(int profession)
 {
@@ -529,7 +537,7 @@ void Villager::addOffers(int addCount)
 	}
 
 	// shuffle the list to make it more interesting
-	std::random_shuffle(newOffers->begin(), newOffers->end());
+	modern_shuffle(newOffers->begin(), newOffers->end());
 
 	if (offers == NULL)
 	{

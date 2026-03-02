@@ -28,19 +28,14 @@ public:
 	static bool eq_test(const TickNextTickData &x, const TickNextTickData &y);
 };
 
-typedef struct
-{
+typedef struct TickNextTickDataKeyHash {
 	int operator() (const TickNextTickData &k) const { return TickNextTickData::hash_fnct (k); }
-
 } TickNextTickDataKeyHash;
 
-typedef struct
-{
+typedef struct TickNextTickDataKeyEq {
 	bool operator() (const TickNextTickData &x, const TickNextTickData &y) const { return TickNextTickData::eq_test (x, y); }
 } TickNextTickDataKeyEq;
 
-typedef struct
-{
+typedef struct TickNextTickDataKeyCompare {
 	bool operator() (const TickNextTickData &x, const TickNextTickData &y) const { return TickNextTickData::compare_fnct (x, y); }
-
 } TickNextTickDataKeyCompare;

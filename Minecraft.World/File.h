@@ -43,14 +43,10 @@ private:
 	//File(vector<wstring> *path);
 };
 
-typedef struct
-{
+typedef struct FileKeyHash {
 	int operator() (const File &k) const { return File::hash_fnct(k); }
-
 } FileKeyHash;
 
-typedef struct
-{
+typedef struct FileKeyEq {
 	bool operator() (const File &x, const File &y) const {return File::eq_test(x,y); }
-
 } FileKeyEq;

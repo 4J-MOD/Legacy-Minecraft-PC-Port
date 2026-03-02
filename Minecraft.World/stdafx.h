@@ -111,6 +111,7 @@ typedef XUID GameSessionUID;
 #include <sstream>
 #include <iostream>
 #include <exception>
+#include <cstdlib>
 
 #ifndef __PS3__			// the PS3 lib assert is rubbish, and aborts the code, we define our own in PS3Types.h
 #include <assert.h>
@@ -143,7 +144,6 @@ typedef XUID GameSessionUID;
 #define OutputDebugStringA BREAKTHECOMPILE
 #define OutputDebugStringW BREAKTHECOMPILE
 #endif
-
 
 void MemSect(int sect);
 

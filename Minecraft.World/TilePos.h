@@ -14,14 +14,11 @@ public:
 	static bool eq_test(const TilePos &x, const TilePos &y);
 };
 
-typedef struct
-{
+typedef struct TilePosKeyHash {
 	int operator() (const TilePos &k) const { return TilePos::hash_fnct (k); }
-
 } TilePosKeyHash;
 
-typedef struct
-{
+typedef struct TilePosKeyEq{
 	bool operator() (const TilePos &x, const TilePos &y) const { return TilePos::eq_test (x, y); }
 } TilePosKeyEq;
 

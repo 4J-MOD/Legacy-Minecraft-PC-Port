@@ -1002,13 +1002,15 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <PrecompiledHeaderOutputFile>$(OutDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PreprocessorDefinitions>_LARGE_WORLDS;_DEBUG_MENUS_ENABLED;_DEBUG;_LIB;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_SECURE_NO_WARNINGS;_WINDOWS64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_LARGE_WORLDS;_DEBUG_MENUS_ENABLED;_DEBUG;_LIB;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_SECURE_NO_WARNINGS;_WINDOWS64;_HAS_STD_BYTE=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CallAttributedProfiling>Disabled</CallAttributedProfiling>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <ShowIncludes>false</ShowIncludes>
       <UseFullPaths>false</UseFullPaths>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ConformanceMode>false</ConformanceMode>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -1052,7 +1054,7 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <PrecompiledHeaderOutputFile>$(OutDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PreprocessorDefinitions>_LARGE_WORLDS;_DEBUG_MENUS_ENABLED;_LIB;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_SECURE_NO_WARNINGS;_WINDOWS64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_LARGE_WORLDS;_DEBUG_MENUS_ENABLED;_LIB;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_SECURE_NO_WARNINGS;_WINDOWS64;_HAS_STD_BYTE=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CallAttributedProfiling>Disabled</CallAttributedProfiling>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <ShowIncludes>false</ShowIncludes>
@@ -1060,6 +1062,8 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ConformanceMode>false</ConformanceMode>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
