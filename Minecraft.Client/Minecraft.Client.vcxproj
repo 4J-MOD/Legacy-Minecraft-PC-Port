@@ -1296,7 +1296,7 @@ if not exist "$(TargetDir)\savedata" mkdir "$(TargetDir)\savedata"</Command>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
-      <AdditionalDependencies>d3d11.lib;..\Minecraft.World\x64_Debug\Minecraft.World.lib;%(AdditionalDependencies);XInput9_1_0.lib;legacy_stdio_definitions.lib;..\Minecraft.Client\Windows64\Miles\Lib\mss64.lib</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;..\Minecraft.World\x64_Debug\Minecraft.World.lib;%(AdditionalDependencies);XInput9_1_0.lib;legacy_stdio_definitions.lib;..\Minecraft.Client\Windows64\Miles\Lib\mss64.lib;..\x64\Debug\4J_Input_d.lib</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Link>
@@ -4283,6 +4283,26 @@ xcopy /q /y /i /s /e $(ProjectDir)Durango\CU  $(LayoutDir)Image\Loose\CU</Comman
     <ClInclude Include="ArrowRenderer.h" />
     <ClInclude Include="BlazeModel.h" />
     <ClInclude Include="BlazeRenderer.h" />
+    <ClInclude Include="BMC\BMC.h" />
+    <ClInclude Include="BMC\bridge\cvar.h" />
+    <ClInclude Include="BMC\engine\Config.h" />
+    <ClInclude Include="BMC\engine\ConsoleVariable.h" />
+    <ClInclude Include="BMC\engine\BGui.h" />
+    <ClInclude Include="BMC\engine\IconsFrontAwesome4.h" />
+    <ClInclude Include="BMC\engine\ShipInit.hpp" />
+    <ClInclude Include="BMC\engine\StringHelper.h" />
+    <ClInclude Include="BMC\engine\UIWidgets.h" />
+    <ClInclude Include="BMC\engine\Window.h" />
+    <ClInclude Include="BMC\libs\imgui\imconfig.h" />
+    <ClInclude Include="BMC\libs\imgui\imgui.h" />
+    <ClInclude Include="BMC\libs\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="BMC\libs\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="BMC\libs\imgui\imgui_internal.h" />
+    <ClInclude Include="BMC\libs\imgui\imstb_rectpack.h" />
+    <ClInclude Include="BMC\libs\imgui\imstb_textedit.h" />
+    <ClInclude Include="BMC\libs\imgui\imstb_truetype.h" />
+    <ClInclude Include="BMC\system\achievements\AchievementImpl.h" />
+    <ClInclude Include="BMC\ui\SettingsWindow.h" />
     <ClInclude Include="BoatModel.h" />
     <ClInclude Include="BoatRenderer.h" />
     <ClInclude Include="BookModel.h" />
@@ -21467,6 +21487,22 @@ xcopy /q /y /i /s /e $(ProjectDir)Durango\CU  $(LayoutDir)Image\Loose\CU</Comman
     <ClCompile Include="ArrowRenderer.cpp" />
     <ClCompile Include="BlazeModel.cpp" />
     <ClCompile Include="BlazeRenderer.cpp" />
+    <ClCompile Include="BMC\BMC.cpp" />
+    <ClCompile Include="BMC\bridge\cvar.cpp" />
+    <ClCompile Include="BMC\engine\Config.cpp" />
+    <ClCompile Include="BMC\engine\ConsoleVariable.cpp" />
+    <ClCompile Include="BMC\engine\BGui.cpp" />
+    <ClCompile Include="BMC\engine\StringHelper.cpp" />
+    <ClCompile Include="BMC\engine\UIWidgets.cpp" />
+    <ClCompile Include="BMC\libs\imgui\imgui.cpp" />
+    <ClCompile Include="BMC\libs\imgui\imgui_demo.cpp" />
+    <ClCompile Include="BMC\libs\imgui\imgui_draw.cpp" />
+    <ClCompile Include="BMC\libs\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="BMC\libs\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="BMC\libs\imgui\imgui_tables.cpp" />
+    <ClCompile Include="BMC\libs\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="BMC\system\achievements\AchievementImpl.cpp" />
+    <ClCompile Include="BMC\ui\SettingsWindow.cpp" />
     <ClCompile Include="BoatModel.cpp" />
     <ClCompile Include="BoatRenderer.cpp" />
     <ClCompile Include="BookModel.cpp" />
@@ -34625,37 +34661,6 @@ xcopy /q /y /i /s /e $(ProjectDir)Durango\CU  $(LayoutDir)Image\Loose\CU</Comman
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage_Vita|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage|Xbox 360'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='CONTENTPACKAGE_SYMBOLS|Xbox 360'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseForArt|Xbox 360'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage_NO_TU|Xbox 360'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage_Vita|Xbox 360'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage|ORBIS'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='CONTENTPACKAGE_SYMBOLS|ORBIS'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseForArt|ORBIS'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage_NO_TU|ORBIS'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ORBIS'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ORBIS'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage_Vita|ORBIS'">true</ExcludedFromBuild>
-    </Library>
-    <Library Include="Windows64\4JLibs\libs\4J_Input_d.lib">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage|Durango'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='CONTENTPACKAGE_SYMBOLS|Durango'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseForArt|Durango'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage_NO_TU|Durango'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugContentPackage|Durango'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage_Vita|Durango'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='CONTENTPACKAGE_SYMBOLS|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseForArt|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage_NO_TU|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage_Vita|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ContentPackage|Xbox 360'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='CONTENTPACKAGE_SYMBOLS|Xbox 360'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseForArt|Xbox 360'">true</ExcludedFromBuild>

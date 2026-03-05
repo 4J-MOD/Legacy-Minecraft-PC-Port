@@ -68,6 +68,7 @@
 #include "Common\UI\IUIScene_CreativeMenu.h"
 #include "Common\UI\UIFontData.h"
 #include "DLCTexturePack.h"
+#include "BMC/BMC.h"
 
 #ifdef __ORBIS__
 #include "Orbis\Network\PsPlusUpsellWrapper_Orbis.h"
@@ -4416,6 +4417,9 @@ void Minecraft::main()
 #ifndef __ORBIS__
 	Minecraft::start(name, sessionId);
 #endif
+
+	// @BNC: Init all self-registered files
+    ShipInit::InitAll();
 }
 
 bool Minecraft::renderNames()

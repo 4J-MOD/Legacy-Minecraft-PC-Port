@@ -4,6 +4,7 @@
 #include "Achievements.h"
 #include "DescFormatter.h"
 #include "Achievement.h"
+#include "../Minecraft.Client/BMC/BMC.h"
 
 void Achievement::_init()
 {
@@ -18,16 +19,19 @@ void Achievement::_init()
 Achievement::Achievement(int id, const wstring& name, int x, int y, Item *icon, Achievement *req)
 	: Stat( Achievements::ACHIEVEMENT_OFFSET + id, I18n::get(wstring(L"achievement.").append(name)) ), desc( I18n::get(wstring(L"achievement.").append(name).append(L".desc"))), icon( new ItemInstance(icon) ), x(x), y(y), req(req)
 {
+	Achievement_Register(this);
 }
 
 Achievement::Achievement(int id, const wstring& name, int x, int y, Tile *icon, Achievement *req)
 	: Stat( Achievements::ACHIEVEMENT_OFFSET + id, I18n::get(wstring(L"achievement.").append(name)) ), desc( I18n::get(wstring(L"achievement.").append(name).append(L".desc"))), icon( new ItemInstance(icon) ), x(x), y(y), req(req)
 {
+	Achievement_Register(this);
 }
 
 Achievement::Achievement(int id, const wstring& name, int x, int y, shared_ptr<ItemInstance> icon, Achievement *req)
 	: Stat( Achievements::ACHIEVEMENT_OFFSET + id, I18n::get(wstring(L"achievement.").append(name)) ), desc( I18n::get(wstring(L"achievement.").append(name).append(L".desc"))), icon(icon), x(x), y(y), req(req)
 {
+	Achievement_Register(this);
 }
 
 Achievement *Achievement::setAwardLocallyOnly()

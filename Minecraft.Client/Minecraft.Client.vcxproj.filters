@@ -723,6 +723,30 @@
     <Filter Include="PSVita\Miles Sound System\lib">
       <UniqueIdentifier>{0061db22-43de-4b54-a161-c43958cdcd7e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BMC">
+      <UniqueIdentifier>{9fde928c-f1c5-4483-9e4f-23917225f96e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BMC\bridge">
+      <UniqueIdentifier>{4f7bb9a1-d013-4bb5-9806-fe98ca338a66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BMC\engine">
+      <UniqueIdentifier>{ef474015-207c-49f9-912c-4209da537e3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BMC\ui">
+      <UniqueIdentifier>{8a88da07-2403-4217-8cd4-d5e3887ae41c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BMC\libs">
+      <UniqueIdentifier>{708d84ff-1919-4f22-85d5-d3ea8ca8aa10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BMC\libs\imgui">
+      <UniqueIdentifier>{43926b8b-bf8e-4581-9bc0-2dc577621d94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BMC\system">
+      <UniqueIdentifier>{b5908f2d-23e8-4478-8f18-1f6c81678427}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BMC\system\achievements">
+      <UniqueIdentifier>{06d3546a-2d3c-4335-ac36-18a8ef92cae2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -3625,6 +3649,66 @@
     <ClInclude Include="Common\UI\UIScene_Keyboard.h">
       <Filter>Common\Source Files\UI\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="BMC\BMC.h">
+      <Filter>BMC</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\bridge\cvar.h">
+      <Filter>BMC\bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\engine\Config.h">
+      <Filter>BMC\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\engine\ConsoleVariable.h">
+      <Filter>BMC\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\engine\BGui.h">
+      <Filter>BMC\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\engine\IconsFrontAwesome4.h">
+      <Filter>BMC\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\engine\ShipInit.hpp">
+      <Filter>BMC\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\engine\StringHelper.h">
+      <Filter>BMC\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\engine\UIWidgets.h">
+      <Filter>BMC\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\engine\Window.h">
+      <Filter>BMC\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\libs\imgui\imconfig.h">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\libs\imgui\imgui.h">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\libs\imgui\imgui_impl_dx11.h">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\libs\imgui\imgui_impl_win32.h">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\libs\imgui\imgui_internal.h">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\libs\imgui\imstb_rectpack.h">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\libs\imgui\imstb_textedit.h">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\libs\imgui\imstb_truetype.h">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\ui\SettingsWindow.h">
+      <Filter>BMC\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="BMC\system\achievements\AchievementImpl.h">
+      <Filter>BMC\system\achievements</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -5637,6 +5721,54 @@
     <ClCompile Include="CrtCompat.cpp">
       <Filter>Common\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BMC\BMC.cpp">
+      <Filter>BMC</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\bridge\cvar.cpp">
+      <Filter>BMC\bridge</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\engine\Config.cpp">
+      <Filter>BMC\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\engine\ConsoleVariable.cpp">
+      <Filter>BMC\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\engine\BGui.cpp">
+      <Filter>BMC\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\engine\StringHelper.cpp">
+      <Filter>BMC\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\engine\UIWidgets.cpp">
+      <Filter>BMC\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\libs\imgui\imgui.cpp">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\libs\imgui\imgui_demo.cpp">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\libs\imgui\imgui_draw.cpp">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\libs\imgui\imgui_impl_dx11.cpp">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\libs\imgui\imgui_impl_win32.cpp">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\libs\imgui\imgui_tables.cpp">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\libs\imgui\imgui_widgets.cpp">
+      <Filter>BMC\libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\ui\SettingsWindow.cpp">
+      <Filter>BMC\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="BMC\system\achievements\AchievementImpl.cpp">
+      <Filter>BMC\system\achievements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="Xbox\4JLibs\libs\4J_Render_d.lib">
@@ -5691,9 +5823,6 @@
       <Filter>Windows64\4JLibs\libs</Filter>
     </Library>
     <Library Include="Windows64\4JLibs\libs\4J_Input.lib">
-      <Filter>Windows64\4JLibs\libs</Filter>
-    </Library>
-    <Library Include="Windows64\4JLibs\libs\4J_Input_d.lib">
       <Filter>Windows64\4JLibs\libs</Filter>
     </Library>
     <Library Include="Windows64\Miles\lib\mss64.lib">

@@ -36,6 +36,7 @@
 #include "Resource.h"
 #include "..\..\Minecraft.World\compression.h"
 #include "..\..\Minecraft.World\OldChunkStorage.h"
+#include "..\BMC\BMC.h"
 
 #include "Xbox/resource.h"
 
@@ -315,6 +316,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	PAINTSTRUCT ps;
 	HDC hdc;
 
+	if (IMGUI_INIT_WINDOW(hWnd, message, wParam, lParam))
+        return true;
+
 	switch (message)
 	{
 	case WM_COMMAND:
@@ -408,6 +412,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	ShowWindow(g_hWnd, nCmdShow);
 	UpdateWindow(g_hWnd);
 
+	BMC::GetInstance().GetGui()->SetupWindow(g_hWnd);
+
 	return TRUE;
 }
 
@@ -458,6 +464,15 @@ LRESULT CALLBACK DlgProc(HWND hWndDlg, UINT Msg, WPARAM wParam, LPARAM lParam)
 
 	return FALSE;
 }
+
+class Renderer {
+public:
+    float m_fClearColor[4];                // Offset: 0x00 (16 bytes)
+    ID3D11Device* m_pDevice;               // Offset: 0x10 (8 bytes)
+    ID3D11DeviceContext* m_pDeviceContext; // Offset: 0x18 
+};
+
+extern Renderer InternalRenderManager;
 
 //--------------------------------------------------------------------------------------
 // Create Direct3D device and swap chain
@@ -582,7 +597,6 @@ void Render()
 {
 	// Just clear the backbuffer
 	float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; //red,green,blue,alpha
-
 	g_pImmediateContext->ClearRenderTargetView( g_pRenderTargetView, ClearColor );
 	g_pSwapChain->Present( 0, 0 );
 }
@@ -592,6 +606,8 @@ void Render()
 //--------------------------------------------------------------------------------------
 void CleanupDevice()
 {
+	// Cleanup
+    BMC::GetInstance().GetGui()->Destroy();
 	if( g_pImmediateContext ) g_pImmediateContext->ClearState();
 
 	if( g_pRenderTargetView ) g_pRenderTargetView->Release();
@@ -710,6 +726,14 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	
 	app.loadStringTable();
 	ui.init(g_pd3dDevice,g_pImmediateContext,g_pRenderTargetView,g_pDepthStencilView,g_iScreenWidth,g_iScreenHeight);
+	
+	RenderDeviceContext context;
+	context.d3d11.device = g_pd3dDevice;
+	context.d3d11.context = g_pImmediateContext;
+	context.d3d11.renderTargetView = g_pRenderTargetView;
+	context.d3d11.depthStencilView = g_pDepthStencilView;
+
+	BMC::GetInstance().GetGui()->SetupRenderContext(context);
 
 	////////////////
 	// Initialise //
@@ -923,6 +947,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 			continue;
 		}
 		RenderManager.StartFrame();
+		BMC::GetInstance().GetGui()->StartFrame();
 #if 0
 		if(pMinecraft->soundEngine->isStreamingWavebankReady() &&
 			!pMinecraft->soundEngine->isPlayingStreamingGameMusic() &&
@@ -1066,6 +1091,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 
 		RenderManager.Set_matrixDirty();
 #endif
+ 		BMC::GetInstance().GetGui()->EndFrame();
 		// Present the frame.
 		RenderManager.Present();
 

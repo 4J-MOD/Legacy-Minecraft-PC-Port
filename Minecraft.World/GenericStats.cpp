@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
+#include "../Minecraft.Client/BMC/BMC.h"
 #include "Monster.h"
-
 #include "GenericStats.h"
 
 GenericStats *GenericStats::instance = NULL;
@@ -198,7 +198,7 @@ Stat* GenericStats::get_enteredBiome(int biomeId)
 
 Stat* GenericStats::get_achievement(eAward achievementId)
 {
-	return NULL;
+	return Achievement_FindByAward(achievementId);
 }
 
 Stat* GenericStats::openInventory() 

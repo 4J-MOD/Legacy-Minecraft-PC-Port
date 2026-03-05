@@ -169,7 +169,7 @@ void AchievementScreen::renderBg(int xm, int ym, float a)
 
 
     int terrainTex = minecraft->textures->loadTexture(L"/terrain.png");
-    int tex = minecraft->textures->loadTexture(L"/achievement/bg.png");
+    int tex = minecraft->textures->loadTexture(TN_ACHIEVEMENT_BG);
 
     int xo = (width - imageWidth) / 2;
     int yo = (height - imageHeight) / 2;
